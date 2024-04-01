@@ -29,27 +29,22 @@ $('document').ready(function(){
 		});
 	});
 	$('#play').click(function(){
-		var audio = $('.song')[0];
+        var audio = $('.song')[0];
         audio.play();
         $('#bulb_yellow').addClass('bulb-glow-yellow-after');
-		$('#bulb_red').addClass('bulb-glow-red-after');
-		$('#bulb_blue').addClass('bulb-glow-blue-after');
-		$('#bulb_green').addClass('bulb-glow-green-after');
-		$('#bulb_pink').addClass('bulb-glow-pink-after');
-		$('#bulb_orange').addClass('bulb-glow-orange-after');
-		$('body').css('backgroud-color','#FFF');
-		$('body').addClass('peach-after');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
-			$('#bannar_coming').fadeIn('slow');
-		});
-	});
+        $('#bulb_red').addClass('bulb-glow-red-after');
+        $('#bulb_blue').addClass('bulb-glow-blue-after');
+        $('#bulb_green').addClass('bulb-glow-green-after');
+        $('#bulb_pink').addClass('bulb-glow-pink-after');
+        $('#bulb_orange').addClass('bulb-glow-orange-after');
+        $('body').css('background-color','#FFF'); // Corrigido de 'backgroud-color' para 'background-color'
+        $('body').addClass('peach-after');
+        $(this).fadeOut('slow').delay(6000).promise().done(function(){
+            $('#bannar_coming').fadeIn('slow');
+        });
+    })
+	
 
-	$('#bannar_coming').click(function(){
-		$('.bannar').addClass('bannar-come');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
-			$('#balloons_flying').fadeIn('slow');
-		});
-	});
 
 	function loopOne() {
 		var randleft = 1000*Math.random();
@@ -195,7 +190,21 @@ $('document').ready(function(){
 	});
 });
 
+// Adicione um evento de clique ao botão "Vamos a Decorar"
+$('#bannar_coming').click(function(){
+    $('.bannar').addClass('bannar-come');
+    $(this).fadeOut('slow').delay(6000).promise().done(function(){
+        $('#balloons_flying').fadeIn('slow');
+    });
+});
+
+$(document).ready(function(){
+    setTimeout(function() {
+        $('.bannar').addClass('banner-come'); // Alterado de '.banner' para '.bannar'
+    }, 3000);
+});
 
 
 
+$('.banner').hide();
 //alert('hello');
